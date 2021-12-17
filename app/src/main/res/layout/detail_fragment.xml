@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="plant"
+            type="com.ozu.cs394.plantsuniverse.model.Plants" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/teal_700"
+        tools:context=".ui.detail.DetailFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="36dp"
+            android:layout_marginBottom="100dp"
+            android:background="@drawable/card_bg"
+            android:paddingTop="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/ivPlantItem"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:scaleType="fitXY"
+                    android:showImage="@{plant.imageUrl}"
+                    tools:src="@mipmap/ic_launcher" />
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/tvCommonName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Common Name: "
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvItem" />
+
+            <TextView
+                android:id="@+id/tvCommonNameValue"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center"
+                android:text="@{plant.commonName}"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvCommonName"
+                app:layout_constraintTop_toBottomOf="@id/cvItem"
+                tools:text="Common Name" />
+
+            <TextView
+                android:id="@+id/tvFamilyName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Family Name: "
+                android:textSize="16sp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCommonName" />
+
+            <TextView
+                android:id="@+id/tvFamilyNameValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center"
+                android:text="@{plant.familyName}"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvFamilyName"
+                app:layout_constraintTop_toBottomOf="@id/tvCommonName"
+                tools:text="Family Name" />
+
+            <TextView
+                android:id="@+id/tvScientificName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Scientific Name:"
+                android:layout_marginStart="16dp"
+                android:textSize="16sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvFamilyName" />
+
+            <TextView
+                android:id="@+id/tvScientificNameValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center"
+                android:text="@{plant.scientificName}"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvScientificName"
+                app:layout_constraintTop_toBottomOf="@id/tvFamilyName"
+                tools:text="Scientific Name" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

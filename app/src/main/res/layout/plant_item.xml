@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="plant"
+            type="com.ozu.cs394.plantsuniverse.model.Plants" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="180dp"
+        android:layout_height="250dp"
+        android:padding="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:background="@drawable/card_bg">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivPlantItem"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="fitXY"
+                android:showImage="@{plant.imageUrl}"
+                tools:src="@mipmap/ic_launcher"/>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvCommonName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@{plant.commonName}"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cvItem"
+            tools:text="Common Name" />
+
+        <TextView
+            android:id="@+id/tvFamilyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:text="@{plant.familyName}"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCommonName"
+            tools:text="Family Name" />
+
+        <TextView
+            android:id="@+id/tvScientificName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:text="@{plant.scientificName}"
+            android:textSize="16sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvFamilyName"
+            tools:text="Scientific Name" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
