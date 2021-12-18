@@ -16,7 +16,20 @@
         android:background="@color/teal_700"
         tools:context=".ui.detail.DetailFragment">
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/pbDetailLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:lottie_url="https://assets10.lottiefiles.com/packages/lf20_3nmkzsqm.json"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"/>
+
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clDetailMainBox"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="36dp"
@@ -25,6 +38,8 @@
             android:layout_marginBottom="100dp"
             android:background="@drawable/card_bg"
             android:paddingTop="32dp"
+            android:visibility="invisible"
+            tools:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

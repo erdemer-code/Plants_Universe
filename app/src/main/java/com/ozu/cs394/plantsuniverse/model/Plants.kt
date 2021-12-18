@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Plants(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     val id: Int?,
     @ColumnInfo(name = "c_name")

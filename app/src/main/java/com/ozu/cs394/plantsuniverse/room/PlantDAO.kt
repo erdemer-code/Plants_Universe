@@ -11,10 +11,10 @@ interface PlantDAO {
 
 
     @Query("SELECT * FROM plants")
-    fun getAllPlants(): LiveData<List<Plants>>
+    fun getAllPlants(): List<Plants>
 
     @Query("SELECT * FROM plants WHERE id = :id")
-    fun getPlant(id:Int):LiveData<Plants>
+    fun getPlant(id:Int): Plants
 
 
 

@@ -13,16 +13,16 @@ abstract class PlantDatabase: RoomDatabase() {
 
     companion object {
         @Volatile
-        private var instance: PlantDatabase? = null
+        private var INSTANCE: PlantDatabase? = null
 
-        private val lock = Any()
-
-        operator fun invoke(context: Context) = instance ?: synchronized(lock) {
-            instance ?: readDB(context).also {
-                instance = it
+        fun getInstance(context: Context): PlantDatabase {
+            if (INSTANCE == null) {
+                synchronized(PlantDatabase::class) {
+                    INSTANCE = readDB(context)
+                }
             }
+            return INSTANCE!!
         }
-
         private fun readDB(context: Context) = Room.databaseBuilder(
             context.applicationContext,
             PlantDatabase::class.java, "plantsDB"
